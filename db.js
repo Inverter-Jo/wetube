@@ -1,50 +1,22 @@
-export const videos = [
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+//TO DO: 영상 검색, 청취, 수정, 삭제, 업로드 플랫폼
+
+
+mongoose.connect(
+    process.env.MONGO_URL,
     {
-        id:324393,
-        title: 'Video awesome',
-        description: 'This is something I love',
-        views: 24,
-        videoFile: "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
-        creator: {
-            id: 121212,
-            name: "jo",
-            email:"jo@jung.com"
-        }
-    },
-    {
-        id:512355,
-        title: 'Video nice',
-        description: 'This is something I love',
-        views: 24,
-        videoFile: "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
-        creator: {
-            id: 121212,
-            name: "jo",
-            email:"jo@jung.com"
-        }
-    },
-    {
-        id:1231593,
-        title: 'Video joa',
-        description: 'This is something I love',
-        views: 24,
-        videoFile: "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
-        creator: {
-            id: 121212,
-            name: "jo",
-            email:"jo@jung.com"
-        }
-    },
-    {
-        id:812355,
-        title: 'Video spcial',
-        description: 'This is something I love',
-        views: 24,
-        videoFile: "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
-        creator: {
-            id: 121212,
-            name: "jo",
-            email:"jo@jung.com"
-        }
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+        useFindAndModify: false
     }
-]
+);
+
+const db = mongoose.connection;
+
+const handleOpen = () => console.log("✅  Connected to DB");
+const handleError = (error) => console.log(`❌  Error on DB Connection:${error}`);
+
+db.once("open", handleOpen);
+db.on("error", handleError);
