@@ -150,12 +150,12 @@ export const postAddComment = async( req, res ) => {
 export const postDeleteComment = async( req, res ) =>{
     const {
         params: {id},
-        body: {commentId}
+        body: {delId}
     } = req; 
     try{
         const video = await Video.findById(id);
-        await Comment.findOneAndRemove({_id: commentId});
-        video.comments.findOneAndRemove(commentId);
+        await Comment.findOneAndRemove({_id: delId});
+        video.comments.findOneAndRemove(delId);
         video.save();
     }catch(error){
         res.status(400);
