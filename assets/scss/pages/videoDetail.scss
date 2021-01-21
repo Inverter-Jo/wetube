@@ -20,6 +20,11 @@
       width: 100px;
       margin-bottom: 15px;
     }
+    .video__author {
+      a {
+        color: #3498db;
+      }
+    }
     .video__title,
     .video__views,
     .video__description {
@@ -39,8 +44,43 @@
   }
   .video__comments {
     margin-top: 25px;
+    text-align: center;
     .video__comment-number {
       font-size: 18px;
+    }
+    .add__comment {
+      margin-top: 25px;
+      width: 100%;
+      input {
+        width: 100%;
+      }
+    }
+    .video__comments-list {
+      margin-top: 50px;
+      li {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 20px;
+        border-bottom-left-radius: 0px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+        button {
+          border: none;
+          box-shadow: none;
+          width: auto;
+          padding: 0px;
+          justify-self: right;
+        }
+        h6 {
+          display: none;
+        }
+      }
     }
   }
 }
